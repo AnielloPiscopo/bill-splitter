@@ -18,18 +18,27 @@ def get_str_list_with_x_elements(length:int)->list[str]:
 
     return str_list
 
-def get_rounded_num_by_division(divisor:float , dividend:int , digits_num)->float:
-    return round(divisor/dividend , digits_num)
+def get_rounded_num_by_division(
+    dividend: float,
+    divisor: int,
+    digits_num: int
+) -> float:
+    return round(dividend / divisor, digits_num)
 
-def get_defaultdict_with_same_value(keys:list[str], value:float, exceptions:Optional[list[str]]=None, specific_value:Optional[float]=None)->defaultdict[str , float]:
-    new_defaultdict:defaultdict[str , float] = defaultdict(float)
+def get_defaultdict_with_same_value(
+    keys: list[str],
+    value: float,
+    exceptions: Optional[list[str]] = None,
+    specific_value: Optional[float] = None
+) -> dict[str, float]:
+
+    result = {}
 
     for key in keys:
-        new_defaultdict[key] = (
-            specific_value if exceptions and key in exceptions else value
-        )
+        result[key] = specific_value if exceptions and key in exceptions else value
 
-    return new_defaultdict
+    return result
+
 
 
 def get_user_boolean_answer()->bool:
