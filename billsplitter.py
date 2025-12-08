@@ -4,6 +4,12 @@ from typing import Optional
 
 # write your code here
 def start_billsplitter()->None:
+    """
+    Starts the Bill Splitter application flow.
+
+    Handles user input, bill calculation, lucky participant selection,
+    and prints the final result.
+    """
     try:
         friends_num:int = get_friends_num()
         friends_list:list[str] = get_friends_list(friends_num)
@@ -17,6 +23,9 @@ def start_billsplitter()->None:
         print(e)
 
 def get_friends_num()->int:
+    """
+    Asks the user to insert the number of friends joining the party.
+    """
     print("INSERT THE NUM OF FRIENDS")
 
     try:
@@ -25,6 +34,9 @@ def get_friends_num()->int:
         raise ValueError("No one is joining for the party")
 
 def get_bill()->float:
+    """
+    Asks the user to insert the total bill amount.
+    """
     print("INSERT THE TOTAL BILL")
 
     try:
@@ -37,6 +49,10 @@ def get_splitted_bill(
     guests_num: int,
     lucky_one: Optional[str] = None
 ) -> float:
+    """
+    Calculates the individual bill share based on the number of guests
+    and the presence of a lucky participant.
+    """
     if lucky_one is not None and guests_num == 1:
         raise ValueError("Cannot split the bill with only one guest and a lucky one")
 
@@ -45,6 +61,9 @@ def get_splitted_bill(
 
 
 def get_friends_list(friends_num:int)->list[str]:
+    """
+    Collects the list of friends' names from user input.
+    """
     print("INSERT THE FRIENDS' NAMES")
     return get_str_list_with_x_elements(friends_num)
 
@@ -53,6 +72,9 @@ def get_friends_dict_with_bills(
     splitted_bill: float,
     lucky_one: Optional[str] = None
 ) -> dict[str, float]:
+    """
+    Creates a dictionary that associates each friend with their split bill amount.
+    """
 
     exceptions: Optional[list[str]] = [lucky_one] if lucky_one else None
 
@@ -65,6 +87,10 @@ def get_friends_dict_with_bills(
 
 
 def get_the_lucky_one(friends_list:list[str])->Optional[str]:
+    """
+    Determines whether a lucky participant will be selected and returns their name.
+    """
+
     print("Do you want to have a lucky one?")
 
     if get_user_boolean_answer() :
