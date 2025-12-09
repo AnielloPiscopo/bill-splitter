@@ -3,7 +3,6 @@
 
 # ✅ README — **Bill Splitter (Python)**
 
-```md
 # 💸 Bill Splitter – Python
 
 A console-based Python application that splits a bill among friends, with support for a random **"lucky one"** who doesn't have to pay.
